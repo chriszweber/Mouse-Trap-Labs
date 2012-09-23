@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>
+		</title>
+		<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.css"
+		/>
+		<style>
+			/* App custom styles */
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+		</script>
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js">
+		</script>
+	</head>
+	
+	<body>
+		<!-- Landing Page -->
+		<div data-role="page" id="page1">
+			<div data-theme="a" data-role="header" class='navbar'>
+				<h3>
+					Landing Page
+				</h3>
+			<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div style="width: 470px; height: 180px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+					<img src="http://codiqa.com/static/images/v2/image.png" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px">
+				</div>
+				<a data-role="button" data-transition="flip" href="#page3">
+					Use Facebook to Play &amp; get 100 bonus coins
+				</a>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<label for="textinput4">
+							Enter Email:
+						</label>
+						<input name="" id="textinput4" placeholder="" value="" type="text">
+					</fieldset>
+				</div>
+				<a data-role="button" data-inline="true" data-transition="flip" href="#page3">
+					Use Email to Play
+				</a>
+			</div>
+		</div>
+		<!-- Welcome Page -->
+		<div data-role="page" id="page3">
+			<div data-theme="a" data-role="header"  class='navbar'>
+				<h3>
+					Welcome
+				</h3>
+					<ul class="nav pull-right">
+
+					<% if current_user %>
+
+						  <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						  <%= current_user.email %>
+						</a>
+						<ul class="dropdown-menu">
+						  <li class="divider"></li>
+						  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+						</ul>
+					  </li>
+				  
+					<% else %>
+
+					  <li><%= link_to "Sign up", new_user_registration_path %></li>
+					  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+					<% end %>
+
+						</ul>				
+			</div>
+			
+			<div data-role="content" style="padding: 15px">
+				<div>
+					<p>
+						<b>
+							Phil
+						</b>
+						<br>
+					</p>
+					<p>
+						<b>
+							Games Played:
+						</b>
+						12
+						<b>
+							<br>
+						</b>
+					</p>
+					<p>
+						<strong data-mce-bogus="1">
+							Lifetime points:
+						</strong>
+						500
+						<br>
+					</p>
+					<p>
+						<strong data-mce-bogus="1">
+							Rank:
+						</strong>
+						Elite
+						<strong data-mce-bogus="1">
+							<br>
+						</strong>
+					</p>
+				</div>
+				<a data-role="button" data-transition="flip" href="#page4">
+					Create Session
+				</a>
+				<a data-role="button" data-transition="flip" href="#page20">
+					Join Session
+				</a>
+				<a data-role="button" data-transition="flip" href="#page3">
+					Edit Profile
+				</a>
+			</div>
+		</div>
+		<!-- Join Session Page -->
+		<div data-role="page" id="page20">
+			<div data-theme="a" data-role="header"  class='navbar'>
+				<h3>
+					Join session
+				</h3>
+
+				<ul class="nav pull-right">
+
+				<% if current_user %>
+
+					  <li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					  <%= current_user.email %>
+					</a>
+					<ul class="dropdown-menu">
+					  <li class="divider"></li>
+					  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+					</ul>
+				  </li>
+			  
+				<% else %>
+
+				  <li><%= link_to "Sign up", new_user_registration_path %></li>
+				  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+				<% end %>
+
+					</ul>
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div>
+					<p>
+						<b>
+							Join a session:
+						</b>
+						<br>
+					</p>
+				</div>
+				<a data-role="button" data-transition="flip" href="#page13">
+					Join Phil's session
+				</a>
+				<a data-role="button" data-transition="flip" href="#page13">
+					Join Donnie's Session
+				</a>
+				<a data-role="button" data-transition="flip" href="#page13">
+					Join Mani's Session
+				</a>
+			</div>
+		</div>
+		<!-- Game Selection (Master) -->
+		<div data-role="page" id="page4">
+			<div data-theme="a" data-role="header"  class='navbar'>
+				<h3>
+					Game Selection
+				</h3>
+							<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div>
+					<p>
+						<b>
+							Select three games
+							<br>
+						</b>
+					</p>
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup" data-type="vertical">
+						<legend>
+							Game 1
+						</legend>
+						<input name="" id="checkbox1" type="checkbox">
+						<label for="checkbox1">
+							Select
+						</label>
+					</fieldset>
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup" data-type="vertical">
+						<legend>
+							Game 2
+						</legend>
+						<input name="" id="checkbox4" type="checkbox">
+						<label for="checkbox4">
+							Select
+						</label>
+					</fieldset>
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup" data-type="vertical">
+						<legend>
+							Game 3
+						</legend>
+						<input name="" id="checkbox5" type="checkbox">
+						<label for="checkbox5">
+							Select
+						</label>
+					</fieldset>
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup" data-type="vertical">
+						<legend>
+							Game 4
+						</legend>
+						<input name="" id="checkbox6" type="checkbox">
+						<label for="checkbox6">
+							Select
+						</label>
+					</fieldset>
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup" data-type="vertical">
+						<legend>
+							Game 5
+						</legend>
+						<input name="" id="checkbox7" type="checkbox">
+						<label for="checkbox7">
+							Select
+						</label>
+					</fieldset>
+				</div>
+				<a data-role="button" data-transition="flip" href="#page14">
+					Create lobby
+				</a>
+			</div>
+		</div>
+		<!-- Lobby Page (master) -->
+		<div data-role="page" id="page14">
+			<div data-theme="a" data-role="header"  class='navbar'>
+				<h3>
+					Lobby (Game Master)
+				</h3>
+
+							<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<div>
+							<p>
+								<b>
+									Team 1
+									<br>
+								</b>
+							</p>
+						</div>
+					</div>
+					<div class="ui-block-b">
+						<div>
+							<p>
+								<b>
+									Team 2
+									<br>
+								</b>
+							</p>
+						</div>
+					</div>
+					<div class="ui-block-a">
+						<div>
+							<p>
+								<b>
+									Phil
+								</b>
+							</p>
+							<p>
+								<b>
+									Donnie
+									<br>
+								</b>
+							</p>
+						</div>
+					</div>
+					<div class="ui-block-b">
+						<div>
+							<p>
+								<b>
+									Chris
+								</b>
+							</p>
+							<p>
+								<b>
+									Mani
+									<br>
+								</b>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="selectmenu2">
+						Choose team:
+					</label>
+					<select name="selectmenu2" id="selectmenu2">
+						<option value="team1">
+							Team 1
+						</option>
+						<option value="team2">
+							Team 2
+						</option>
+					</select>
+				</div>
+				<a data-role="button" data-transition="flip" href="#page7">
+					Invite Friends
+				</a>
+				<a data-role="button" data-transition="flip" href="#page8">
+					Start
+				</a>
+			</div>
+		</div>
+		<!-- Lobby Page (player) -->
+		<div data-role="page" id="page13">
+			<div data-theme="a" data-role="header"  class='navbar'>
+				<h3>
+					Lobby (player)
+				</h3>
+							<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<div>
+							<p>
+								<b>
+									Team 1
+									<br>
+								</b>
+							</p>
+						</div>
+					</div>
+					<div class="ui-block-b">
+						<div>
+							<p>
+								<b>
+									Team 2
+									<br>
+								</b>
+							</p>
+						</div>
+					</div>
+					<div class="ui-block-a">
+						<div>
+							<p>
+								<b>
+									Phil
+								</b>
+							</p>
+							<p>
+								<b>
+									Donnie
+									<br>
+								</b>
+							</p>
+						</div>
+					</div>
+					<div class="ui-block-b">
+						<div>
+							<p>
+								<b>
+									Chris
+								</b>
+							</p>
+							<p>
+								<b>
+									Mani
+									<br>
+								</b>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="selectmenu1">
+						Choose team:
+					</label>
+					<select name="selectmenu1" id="selectmenu1">
+						<option value="team1">
+							Team 1
+						</option>
+						<option value="team2">
+							Team 2
+						</option>
+					</select>
+				</div>
+				<a data-role="button" data-transition="flip" href="#page15">
+					Invite Friends
+				</a>
+				<a data-role="button" data-transition="flip" href="#page8">
+					Ready
+				</a>
+			</div>
+		</div>
+		<!-- Invite Page (Master) -->
+		<div data-role="page" id="page7">
+			<div data-theme="a" data-role="header"  class='navbar'>
+				<h3>
+					Invite Friends (Game Master)
+				</h3>
+							<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div>
+					<p>
+						<b>
+							Bump phones to invite friends or:
+							<br>
+						</b>
+					</p>
+				</div>
+				<a data-role="button" data-transition="pop" href="#page14">
+					Bump
+				</a>
+				<a data-role="button" data-transition="flip" href="#page14">
+					Select from address book
+				</a>
+				<a data-role="button" data-transition="flip" href="#page14">
+					Select from Facebook friends
+				</a>
+			</div>
+		</div>
+		<!-- Invite Page (player) -->
+		<div data-role="page" id="page15">
+			<div data-theme="a" data-role="header" class='navbar'>
+				<h3>
+					Invite Friends (Player)
+				</h3>
+							<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div>
+					<p>
+						<b>
+							Bump phones to invite friends or:
+							<br>
+						</b>
+					</p>
+				</div>
+				<a data-role="button" data-transition="pop" href="#page13">
+					Bump
+				</a>
+				<a data-role="button" data-transition="flip" href="#page13">
+					Select from address book
+				</a>
+				<a data-role="button" data-transition="flip" href="#page13">
+					Select from Facebook friends
+				</a>
+			</div>
+		</div>
+		<!-- Ad Page -->
+		<div data-role="page" id="page8">
+			<div data-theme="a" data-role="header" class='navbar'>
+				<h3>
+					Advertisement (Facebook preferred)
+				</h3>
+							<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div style="width: 470px; height: 170px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+					<img src="http://codiqa.com/static/images/v2/image.png" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px">
+				</div>
+				<input value="(Like on Facebook)" type="submit">
+				<a data-role="button" data-transition="flip" href="#page9">
+					Next (automatically after 5 sec)
+				</a>
+			</div>
+		</div>
+		<!-- Instructions Page 1 -->
+		<div data-role="page" id="page9">
+			<div data-theme="a" data-role="header" class='navbar'>
+				<h3>
+					Instructions (Game 1)
+				</h3>
+							<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div style="width: 470px; height: 100px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+					<img src="http://codiqa.com/static/images/v2/image.png" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px">
+				</div>
+				<div>
+					<p>
+						<b>
+							Instructions
+						</b>
+					</p>
+					<ol>
+						<li>
+							<b>
+								first one to
+							</b>
+							<br>
+						</li>
+						<li>
+							blah blah
+						</li>
+						<li>
+							blah blah﻿
+							<b>
+								<br>
+							</b>
+						</li>
+					</ol>
+				</div>
+				<a data-role="button" data-transition="flip" href="#page10">
+					next (automatically after 5 sec)
+				</a>
+			</div>
+		</div>
+		<!-- Mini Game Page 1 -->
+		<div data-role="page" id="page10">
+			<div data-theme="a" data-role="header" class='navbar'>
+				<h3>
+					Mini Game 1
+				</h3>
+							<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div style="width: 470px; height: 200px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+					<img src="http://codiqa.com/static/images/v2/image.png" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px">
+				</div>
+				<a data-role="button" data-transition="flip" href="#page16">
+					Next mini game (automatically after 5 sec)
+				</a>
+			</div>
+		</div>
+		<!-- Instructions Page 2 -->
+		<div data-role="page" id="page16">
+			<div data-theme="a" data-role="header" class='navbar'>
+				<h3>
+					Instructions (Game 2)
+				</h3>
+							<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div style="width: 470px; height: 100px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+					<img src="http://codiqa.com/static/images/v2/image.png" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px">
+				</div>
+				<div>
+					<p>
+						<b>
+							Instructions
+						</b>
+					</p>
+					<ol>
+						<li>
+							<b>
+								first one to
+							</b>
+							<br>
+						</li>
+						<li>
+							blah blah
+						</li>
+						<li>
+							blah blah﻿
+							<b>
+								<br>
+							</b>
+						</li>
+					</ol>
+				</div>
+				<a data-role="button" data-transition="flip" href="#page18">
+					next (automatically after 5 sec)
+				</a>
+			</div>
+		</div>
+		<!-- Mini Game Page 2 -->
+		<div data-role="page" id="page18">
+			<div data-theme="a" data-role="header" class='navbar'>
+				<h3>
+					Mini Game 2
+				</h3>
+							<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div style="width: 470px; height: 200px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+					<img src="http://codiqa.com/static/images/v2/image.png" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px">
+				</div>
+				<a data-role="button" data-transition="flip" href="#page17">
+					Next mini game (automatically after 5 sec)
+				</a>
+			</div>
+		</div>
+		<!-- Instructions Page 3 -->
+		<div data-role="page" id="page17">
+			<div data-theme="a" data-role="header" class='navbar'>
+				<h3>
+					Instructions Game 3
+				</h3>
+							<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div style="width: 470px; height: 100px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+					<img src="http://codiqa.com/static/images/v2/image.png" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px">
+				</div>
+				<div>
+					<p>
+						<b>
+							Instructions
+						</b>
+					</p>
+					<ol>
+						<li>
+							<b>
+								first one to
+							</b>
+							<br>
+						</li>
+						<li>
+							blah blah
+						</li>
+						<li>
+							blah blah﻿
+							<b>
+								<br>
+							</b>
+						</li>
+					</ol>
+				</div>
+				<a data-role="button" data-transition="flip" href="#page19">
+					next (automatically after 5 sec)
+				</a>
+			</div>
+		</div>
+		<!-- Mini Game Page 3 -->
+		<div data-role="page" id="page19">
+			<div data-theme="a" data-role="header" class='navbar'>
+				<h3>
+					Mini Game 3
+				</h3>
+							<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div style="width: 470px; height: 200px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+					<img src="http://codiqa.com/static/images/v2/image.png" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px">
+				</div>
+				<a data-role="button" data-transition="flip" href="#page11">
+					Results (Automatically after 5 sec)
+				</a>
+			</div>
+		</div>
+		<!-- Results Page -->
+		<div data-role="page" id="page11">
+			<div data-theme="a" data-role="header" class='navbar'>
+				<h3>
+					Results Page
+				</h3>
+							<ul class="nav pull-right">
+
+			<% if current_user %>
+
+				  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <%= current_user.email %>
+				</a>
+				<ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+				</ul>
+			  </li>
+		  
+			<% else %>
+
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Sign in", new_user_session_path %></li>
+
+			<% end %>
+
+				</ul>
+
+			</div>
+			<div data-role="content" style="padding: 15px">
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<div>
+							<p>
+								<b>
+									Team 1: 200 Total Points
+									<br>
+								</b>
+							</p>
+						</div>
+					</div>
+					<div class="ui-block-b">
+						<div>
+							<p>
+								<b>
+									Team 2: 200 Total Points
+									<br>
+								</b>
+							</p>
+						</div>
+					</div>
+					<div class="ui-block-a">
+						<div>
+							<p>
+								<b>
+									Game 1: 50 points
+									<br>
+								</b>
+							</p>
+							<p>
+								<b>
+									Game 2: 100 points
+									<br>
+								</b>
+							</p>
+							<p>
+								<b>
+									Game 3: 50 points
+									<br>
+								</b>
+							</p>
+						</div>
+					</div>
+					<div class="ui-block-b">
+						<div>
+							<p>
+								<b>
+									Game 1: 50 points
+									<br>
+								</b>
+							</p>
+							<p>
+								<b>
+									Game 2: 100 points
+									<br>
+								</b>
+							</p>
+							<p>
+								<b>
+									Game 3: 50 points
+								</b>
+								<br>
+							</p>
+						</div>
+					</div>
+				</div>
+				<a data-role="button" data-transition="fade" href="#page11">
+					Share on Facebook
+				</a>
+				<a data-role="button" data-transition="flip" href="#page13">
+					Lobby (automatically after 10 sec)
+				</a>
+			</div>
+		</div>
+		<script>
+			  //App custom javascript
+		</script>
+	</body>
+
+</html>
